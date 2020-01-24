@@ -3,5 +3,6 @@
 <input type="text" name="content" value="${task.content}" />
 <br /><br />
 
+<!-- トークンをhiddenfieldで受け取る -->
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>

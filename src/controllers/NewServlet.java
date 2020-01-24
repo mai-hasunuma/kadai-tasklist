@@ -23,10 +23,13 @@ public class NewServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // CSRF対策
+        // リクエストスコープにトークンを格納
         request.setAttribute("_token", request.getSession().getId());
 
+        //　リクエストスコープに空のタスクを格納　newやeditで共通して作成できるフォームを作成したときに、valueでtask.contentを設定したのでエラーにならないために
         request.setAttribute("task", new Task());
 
+        // フォワード先の指定
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
     }
